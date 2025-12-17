@@ -71,4 +71,29 @@ async function searchPeoplebyAge() {
 
 }
 
+async function findDangerousPeople(){
+    fs.readFile("TRANSCRIPTIONS.json", "utf8", (error, data) => {
+        const calls = JSON.parse(data);
+        const ages = {}
 
+
+        calls.forEach ((call) => {
+        let con = call.content.split(' ')
+        let count = 0
+
+        con.forEach((wo) => {
+            if (wo === "death" || wo === "knife" || wo === "bomb" || wo === "attack")
+            {count++}})
+
+        if (count) {
+            call.age.toString()
+        }
+
+            
+        
+    })
+
+
+        })
+    }        
+    
