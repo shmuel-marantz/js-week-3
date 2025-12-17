@@ -37,30 +37,38 @@ async function searchPeoplebyName() {
   fs.readFile("PEOPLE.json", "utf8", (error, data) => {
     const people = JSON.parse(data);
     let man = "";
-    let inp = input("enter name");
+    let inp = input("enter name\n");
     people.forEach((pe) => {
       if (pe.name === inp) {
         man = pe;
-        return 
+        return;
       }
     });
-    if (man){console.log(man);}
-    else{console.log("The man does not exist")}
+    if (man) {
+      console.log(man);
+    } else {
+      console.log("The man does not exist");
+    }
   });
 }
 
-async function searchPeoplebyName() {
+async function searchPeoplebyAge() {
   fs.readFile("PEOPLE.json", "utf8", (error, data) => {
     const people = JSON.parse(data);
-    let man = "";
-    let inp = input("enter name");
+    let men = [];
+    let inp = +input("enter Age\n");
     people.forEach((pe) => {
-      if (pe.name === inp) {
-        man = pe;
-        return 
+      if (pe.age === inp) {
+        men.push(pe);
       }
     });
-    if (man){console.log(man);}
-    else{console.log("The man does not exist")}
+    if (men.length>0) {
+      console.log(men);
+    } else {
+      console.log("Age does not exist");
+    }
   });
+
 }
+
+
