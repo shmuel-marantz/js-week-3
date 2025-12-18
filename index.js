@@ -81,19 +81,28 @@ async function findDangerousPeople(){
         let con = call.content.split(' ')
         let count = 0
 
-        con.forEach((wo) => {
+        con.forEach((word) => {
+          let wo = word.toLowerCase()
             if (wo === "death" || wo === "knife" || wo === "bomb" || wo === "attack")
             {count++}})
 
         if (count) {
-            call.age.toString()
+          const age1 = call.age.toString()
+          if (ages[age1]) {ages[age1].push(count)}
+          else {ages[age1] = [count]}
         }
 
             
         
     })
-
+console.log (ages)
 
         })
-    }        
+    }       
     
+    
+    // const w = {ww: 1}
+    // const q = "ee"
+    // w.q = [1]
+    // console.log(w)
+    findDangerousPeople()
